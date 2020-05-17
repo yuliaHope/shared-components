@@ -1,0 +1,23 @@
+import { withKnobs, select, boolean } from '@storybook/addon-knobs';
+import Footer from '.';
+import { IconCalendar } from '../icons';
+import { Meta, Story, Preview, Props, Description } from '@storybook/addon-docs/blocks';
+
+<Meta
+  title={'Footer'}
+  decorators={[withKnobs]}
+  component={Footer}
+  />
+
+<h1>Footer</h1>
+
+<Preview>
+  <Story name='Default'>{() => {
+      return (<div style={{padding: '30px', background: '#6DBBFA'}}><Footer/></div>)
+  }}
+  </Story>
+</Preview>
+
+### Props
+
+<Props of={Footer} />

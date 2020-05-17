@@ -1,0 +1,52 @@
+import * as icons from '.';
+import { Meta, Story, Preview, Description } from '@storybook/addon-docs/blocks';
+
+<Meta title={'Icons'} component={icons} />
+
+<h1>Icons</h1>
+
+<Preview>
+  <Story name="Default">
+    {() => {
+      return (
+        <div
+          style={{
+            position: 'relative',
+            'column-count': '4',
+          }}
+        >
+          {Object.keys(icons).map((name, k) => {
+            const Icon = icons[name];
+            return (
+              <div
+                style={{
+                  padding: '20px 12px',
+                }}
+              >
+                <Icon
+                  style={{
+                    'max-width': '16.6%',
+                  }}
+                  key={k}
+                />
+                <div>{name}</div>
+              </div>
+            );
+          })}
+        </div>
+      );
+    }}
+  </Story>
+</Preview>
+
+### Props
+
+The components accept any props passed to them and are rendered as SVG elements.
+
+### Usage
+
+```jsx
+import { IconCalendar } from '@real-estate/react-shared-components/icons';
+
+<IconCalendar />;
+```

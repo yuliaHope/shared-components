@@ -1,17 +1,19 @@
-const path = require('path');
-const glob = require('glob');
-
 module.exports = {
   stories: ['../src/**/*.stories.(js|jsx|mdx)'],
   addons: [
-    '@storybook/addon-knobs',
-    '@storybook/addon-viewport',
-    '@storybook/preset-create-react-app'
+    {
+      name: '@storybook/preset-create-react-app',
+      options: {
+        scriptsPackageName: 'react-scripts',
+      },
+    },
     {
       name: '@storybook/addon-docs',
       options: {
         configureJSX: true,
       },
     },
+    '@storybook/addon-knobs',
+    '@storybook/addon-viewport',
   ],
 };

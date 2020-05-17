@@ -1,0 +1,63 @@
+import { withKnobs, select, boolean } from '@storybook/addon-knobs';
+import Button from '.';
+import { IconCalendar } from '../icons';
+import { Meta, Story, Preview, Props, Description } from '@storybook/addon-docs/blocks';
+
+const clickHandler = (e) => {
+  alert(`${e.currentTarget.dataset.size} clicked`);
+};
+
+<Meta
+  title={'Button'}
+  decorators={[withKnobs]}
+  component={Button}
+  />
+
+<h1>Button</h1>
+
+A basic button component, includes several predefined button styles (see examples below)
+
+<Preview>
+  <Story name='Default'>{() => {
+      const disabled = boolean('disabled', false);
+      return (
+          <div>
+          <div>
+            <Button className="btn-secondary" disabled={disabled}>
+             Search
+            </Button>
+          </div>
+          <div>
+            <Button className="btn-link" icon={IconCalendar} disabled={disabled} />
+          </div>
+          <div>
+            <Button className="btn-primary" disabled={disabled}>
+             Log in
+           </Button>
+          </div>
+        </div>
+      )
+  }}
+  </Story>
+</Preview>
+
+### Props
+
+<Props of={Button} />
+
+##### The component accepts all other props [`style`, `onClick`, etc]
+
+<br />
+
+
+When `icon` property is provided as string it renders an SVG Icon
+(referenced by name from `@hulu-react-style-components/icons`) along with the specified children.
+
+### Usage
+
+```jsx
+import { Button }  from '@hulu/react-style-components';
+
+
+<Button onClick={onButtonClick} size={size} variant={variant} disabled={disabled}>Button text</Button>
+```

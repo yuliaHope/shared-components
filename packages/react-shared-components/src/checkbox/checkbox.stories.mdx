@@ -1,0 +1,41 @@
+import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
+import { useState } from '@storybook/addons';
+import Checkbox from '.';
+import { Meta, Story, Preview, Description, Props } from '@storybook/addon-docs/blocks';
+
+<Meta
+  title={'Checkbox'}
+  component={Checkbox}
+  decorators={[withKnobs]} />
+
+<h1>Checkbox</h1>
+
+A basic Checkbox component
+
+<Preview>
+  <Story name='Default'>{() => {
+    const isChecked = boolean('isChecked', true);
+    return (
+      <Checkbox
+        key={isChecked}
+        handleToggle={() => {}}
+        isChecked={isChecked}
+        label="Remember me"
+      />
+    );
+  }}
+  </Story>
+</Preview>
+
+### Props
+
+<Props of={Checkbox} />
+
+### Usage
+
+```jsx
+import { Switch } from '@hulu-react-style-components';
+ 
+ 
+<Switch handleToggle={() => {}} isChecked={false} />
+```

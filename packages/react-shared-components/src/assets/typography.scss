@@ -1,6 +1,14 @@
-@import '../variables/typography-mixins';
+@import './variables';
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('./fonts/Rubik.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
 @mixin text-style($font-size, $line-height, $font-weight) {
+  font-family: Rubik;
   font-size: $font-size;
   line-height: $line-height;
   font-weight: $font-weight;

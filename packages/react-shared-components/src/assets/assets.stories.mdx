@@ -1,0 +1,100 @@
+import { Meta, Story, Preview, Description } from '@storybook/addon-docs/blocks';
+
+<Meta title={'Text Styles'} component={null} />
+
+<h1>Text Styles</h1>
+
+<Preview>
+  <Story name="Default">
+    {() => {
+      return (
+      <table>
+        <tr>
+          <th>Example</th>
+          <th>Font Family</th>
+          <th>Font Size</th>
+          <th>Font Weight</th>
+          <th>Line Height</th>
+          <th>CSS Class</th>
+        </tr>
+        <tr>
+          <td className="title-1">Title 1</td>
+          <td>Rubik</td>
+          <td>72px</td>
+          <td>500 - medium</td>
+          <td>120</td>
+          <td>.title-1</td>
+        </tr>
+        <tr>
+          <td className="title-2">Title 2</td>
+          <td>Rubik</td>
+          <td>30px</td>
+          <td>500 - medium</td>
+          <td>137</td>
+          <td>.title-2</td>
+        </tr>
+        <tr>
+          <td className="subtitle-1">Subtitle 1</td>
+          <td>Rubik</td>
+          <td>24px</td>
+          <td>500 - medium</td>
+          <td>120</td>
+          <td>.subtitle-1</td>
+        </tr>
+        <tr>
+          <td className="subtitle-2">Subtitle 2</td>
+          <td>Rubik</td>
+          <td>24px</td>
+          <td>300 - regular</td>
+          <td>130</td>
+          <td>.subtitle-2</td>
+        </tr>
+        <tr>
+          <td className="text-b">Text button</td>
+          <td>Rubik</td>
+          <td>16px</td>
+          <td>500 - medium</td>
+          <td>125</td>
+          <td>.text-b</td>
+        </tr>
+        <tr>
+          <td className="text-l">Text Line</td>
+          <td>Rubik</td>
+          <td>16px</td>
+          <td>300 - regular</td>
+          <td>130</td>
+          <td>.text-l</td>
+        </tr>
+        <tr>
+          <td className="text-l-s">Text Line Small</td>
+          <td>Rubik</td>
+          <td>12px</td>
+          <td>300 - regular</td>
+          <td>130</td>
+          <td>.text-l-s</td>
+        </tr>
+        <tr>
+          <td className="description">Description</td>
+          <td>Rubik</td>
+          <td>14px</td>
+          <td>300 - regular</td>
+          <td>143</td>
+          <td>.description</td>
+        </tr>
+      </table>
+      );
+    }}
+  </Story>
+</Preview>
+
+### Props
+
+The components accept any props passed to them and are rendered as SVG elements.
+
+### Usage
+
+```jsx
+import { IconCalendar } from '@real-estate/react-shared-components/icons';
+
+<IconCalendar />;
+```

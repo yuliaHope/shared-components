@@ -1,0 +1,86 @@
+import SearchInput from '.';
+import { Meta, Story, Preview, Description, Props } from '@storybook/addon-docs/blocks';
+import { useState } from '@storybook/addons';
+
+<Meta
+  title={'Search Input'}
+  component={SearchInput}  />
+
+<h1>Search Input</h1>
+
+<Preview>
+  <Story name='Default'>
+    <SearchInput placeholder='Enter an address, city or ZIP code' />
+  </Story>
+</Preview>
+
+### Props
+
+<Props of={SearchInput} />
+
+#### Event handlers
+
+- `onClear` is called when clear/close button is clicked
+- `onInput` is called when the text value changes
+
+#### Children
+
+Search Result component may be provided as children
+
+<br />
+
+### With Input Handler
+
+<Preview>
+  <Story name='WithInputHandler'>{() => {
+    const [search, setSearch] = useState('');
+    return (
+      <SearchInput
+        onInput={setSearch}
+        placeholder='Search'>
+        <div>Your search{search}</div>
+      </SearchInput>
+    );
+  }}</Story>
+</Preview>
+
+### With Submit Handler
+
+<Preview>
+  <Story name='WithSubmitHandler'>{() => {
+    const [search, setSearch] = useState('');
+    return (
+      <SearchInput onSubmit={setSearch} placeholder='Press enter to submit your query'>
+        <div>Your search{search}</div>
+      </SearchInput>
+    );
+  }}
+  </Story>
+</Preview>
+
+### With Clear Handler
+
+<Preview>
+  <Story name='WithClearHandler'>{() => {
+    const [search, setSearch] = useState('');
+    return (
+      <SearchInput
+        onClear={() => setSearch('')}
+        onInput={setSearch}
+        placeholder='Search'>
+        {search !== '' && <div>Your search{search}</div>}
+      </SearchInput>
+    );
+  }}
+  </Story>
+</Preview>
+
+### Usage
+
+```jsx
+import { SearchInput } from '@hulu-react-style-components';
+ 
+
+<SearchInput placeholder="Search for resources (reports, dashboards, templates, etc.)" />
+```
+
