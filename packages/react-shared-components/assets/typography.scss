@@ -1,0 +1,32 @@
+@import '../variables/typography-mixins';
+
+@mixin text-style($font-size, $line-height, $font-weight) {
+  font-size: $font-size;
+  line-height: $line-height;
+  font-weight: $font-weight;
+}
+
+.title-1 {
+  @include text-style($spacer * 4.5, 120%, $font-weight-medium);
+}
+.title-2 {
+  @include text-style($spacer * 1.875, 137%, $font-weight-medium);
+}
+.subtitle-1 {
+  @include text-style($spacer * 1.5, 120%, $font-weight-medium);
+}
+.subtitle-2 {
+  @include text-style($spacer * 1.5, 130%, $font-weight-normal);
+}
+.text-l {
+  @include text-style($spacer, 130%, $font-weight-normal);
+}
+.text-l-s {
+  @include text-style($spacer * 0.75, 130%, $font-weight-normal);
+}
+.text-b {
+  @include text-style($spacer, 125%, $font-weight-medium);
+}
+.description {
+  @include text-style($spacer * 0.875, 143%, $font-weight-normal);
+}
