@@ -1,0 +1,44 @@
+import { Meta, Story, Preview, Description } from '@storybook/addon-docs/blocks';
+
+<Meta title={'Colors'} component={null} />
+
+<h1>Colors</h1>
+
+<Preview>
+  <Story name="Default">
+    {() => {
+      const colors = {
+        '$blue-darker': '#0E1343',
+        '$blue-dark': '#0175D8',
+        $blue: '#6DBBFA',
+        '$blue-light': '#CBE9FF',
+        '$blue-lighter': '#F6F7F9',
+        $orange: '#FC8946',
+        $white: '#FFFFFF',
+        $grey: '#A7AEB8',
+        $red: '#F34949',
+        $almond: '#FFEAC9',
+      };
+      return (
+        <div className="d-flex">
+          {Object.keys(colors).map((name, k) => {
+            const color = colors[name];
+            return (
+              <div style={{ 'margin-right': '28px' }}>
+                <div
+                  style={{
+                    width: '60px',
+                    height: '60px',
+                    'border-radius': '8px',
+                    background: color,
+                  }}
+                ></div>
+                <div>{name}</div>
+              </div>
+            );
+          })}
+        </div>
+      );
+    }}
+  </Story>
+</Preview>

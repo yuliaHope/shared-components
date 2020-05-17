@@ -9,6 +9,7 @@ import { Meta, Story, Preview, Description } from '@storybook/addon-docs/blocks'
     {() => {
       return (
       <table>
+      <thead>
         <tr>
           <th>Example</th>
           <th>Font Family</th>
@@ -17,6 +18,8 @@ import { Meta, Story, Preview, Description } from '@storybook/addon-docs/blocks'
           <th>Line Height</th>
           <th>CSS Class</th>
         </tr>
+        </thead>
+        <tbody>
         <tr>
           <td className="title-1">Title 1</td>
           <td>Rubik</td>
@@ -81,6 +84,7 @@ import { Meta, Story, Preview, Description } from '@storybook/addon-docs/blocks'
           <td>143</td>
           <td>.description</td>
         </tr>
+        </tbody>
       </table>
       );
     }}

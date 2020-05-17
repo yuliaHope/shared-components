@@ -7,6 +7,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Rubik';
+  src: url('./fonts/Rubikmedium.woff') format('woff') local('Rubik Medium');
+  font-weight: 500;
+  font-style: normal;
+}
+
 @mixin text-style($font-size, $line-height, $font-weight) {
   font-family: Rubik;
   font-size: $font-size;
