@@ -1,39 +1,50 @@
-.btn {
+.button {
   border-style: none;
   outline: none;
   border-radius: 8px;
-  padding: 0 25px;
+  padding: 0 1.5 * $spacer;
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.55;
+  }
 }
 
-.btn-secondary {
+.btn-regular {
   box-shadow: 0px 4px 25px rgba(25, 36, 95, 0.1);
   color: $primary-darker;
   background-color: $white;
-  min-height: 50px;
+  min-height: 3 * $spacer;
+
+  &:hover {
+    background-color: $primary-lighter;
+  }
+
+  &:active {
+    box-shadow: none;
+    color: $primary-dark;
+    background-color: $primary-lighter;
+  }
 }
 
-.btn-secondary:hover {
-  background-color: $primary-lighter;
-}
-
-.btn-secondary:active {
-  box-shadow: none;
-  color: $primary-dark;
-  background-color: $primary-lighter;
-}
-
-.btn-primary {
-  min-height: 40px;
+.btn-main {
+  min-height: 2.5 * $spacer;
   color: $white;
   background-color: $primary-dark;
+
+  &:hover {
+    background-color: $primary-hover;
+  }
+
+  &:active {
+    background-color: $primary-active;
+  }
 }
 
-.btn-primary:hover {
-  background-color: #55b7f3;
-}
-
-.btn-primary:active {
-  background-color: #9bcefd;
+.btn-main:focus,
+.btn-regular:focus {
+  box-shadow: none !important;
+  outline: none;
 }
 
 .btn-link {
@@ -41,20 +52,25 @@
   color: $grey;
   opacity: 0.51;
 
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.55;
+  }
+
   path {
     fill: $grey;
   }
-}
 
-.btn-link:hover {
-  opacity: 1;
-}
+  &:hover {
+    opacity: 1;
+  }
 
-.btn-link:active {
-  color: $primary;
-  opacity: 1;
+  &:active {
+    color: $primary;
+    opacity: 1;
 
-  path {
-    fill: $primary;
+    path {
+      fill: $primary;
+    }
   }
 }

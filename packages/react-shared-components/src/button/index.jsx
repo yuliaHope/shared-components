@@ -1,15 +1,16 @@
 import React from 'react';
+import classnames from 'classnames';
 
 import './index.scss';
 
-function Button({ className, icon: Icon, children, ...props }) {
+function Button({ className, icon: Icon, children, disabled, ...props }) {
   return Icon ? (
     <>
-      <Icon className={`text-b ${className}`} />
+      <Icon className={classnames('text-b', className, { disabled })} {...props} />
       <span>{children}</span>
     </>
   ) : (
-    <button className={`btn text-b ${className}`} {...props}>
+    <button className={classnames('button text-b', className)} disabled={disabled} {...props}>
       {children}
     </button>
   );

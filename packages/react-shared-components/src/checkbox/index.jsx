@@ -1,23 +1,19 @@
 import React from 'react';
-import CheckboxUI from './checkbox';
+import classnames from 'classnames';
+import Input from 'reactstrap/lib/Input';
+import Label from 'reactstrap/lib/Label';
+import FormGroup from 'reactstrap/lib/FormGroup';
 
-class Checkbox extends React.Component {
-  state = { checked: !!this.props.isChecked };
+import './index.scss';
 
-  handleCheckboxChange = (event) => {
-    this.setState({ checked: event.target.checked });
-  };
-
-  render() {
-    return (
-      <div style={{ fontFamily: 'system-ui' }}>
-        <label>
-          <CheckboxUI checked={this.state.checked} onChange={this.handleCheckboxChange} />
-          <span>{this.props.label}</span>
-        </label>
-      </div>
-    );
-  }
+export default function Checkbox({ id, label, className, ...props }) {
+  return (
+    <FormGroup check>
+      <Input type="checkbox" className={classnames('custom-checkbox', className)} id={id} {...props} />
+      <Label htmlFor={id} class="container">
+        {label}
+        <span class="checkmark"></span>
+      </Label>
+    </FormGroup>
+  );
 }
-
-export default Checkbox;

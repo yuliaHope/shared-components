@@ -3,10 +3,6 @@ import Button from '.';
 import { IconCalendar } from '../icons';
 import { Meta, Story, Preview, Props, Description } from '@storybook/addon-docs/blocks';
 
-const clickHandler = (e) => {
-  alert(`${e.currentTarget.dataset.size} clicked`);
-};
-
 <Meta
   title={'Button'}
   decorators={[withKnobs]}
@@ -21,20 +17,39 @@ A basic button component, includes several predefined button styles (see example
   <Story name='Default'>{() => {
       const disabled = boolean('disabled', false);
       return (
-          <div>
-          <div>
-            <Button className="btn-secondary" disabled={disabled}>
+          <div className="d-flex">
+            <Button className="btn-regular m-3" disabled={disabled}>
              Search
             </Button>
-          </div>
-          <div>
-            <Button className="btn-link" icon={IconCalendar} disabled={disabled} />
-          </div>
-          <div>
-            <Button className="btn-primary" disabled={disabled}>
+            <Button className="btn-link m-3" icon={IconCalendar} disabled={disabled} />
+            <Button className="btn-main m-3" disabled={disabled}>
              Log in
            </Button>
-          </div>
+        </div>
+      )
+  }}
+  </Story>
+</Preview>
+
+### Button with a callback
+
+Click on the button to trigger a callback function
+
+<Preview>
+  <Story name='WithOnclicHandler'>{() => {
+    const clickHandler = (e) => {
+      alert(`${e.currentTarget.dataset.type} clicked`);
+    };
+      const disabled = boolean('disabled', false);
+      return (
+          <div className="d-flex">
+            <Button data-type="regular" className="btn-regular m-3" onClick={clickHandler} disabled={disabled}>
+             Search
+            </Button>
+            <Button data-type="link" className="btn-link m-3" onClick={clickHandler} icon={IconCalendar} disabled={disabled} />
+            <Button data-type="main" className="btn-main m-3" onClick={clickHandler} disabled={disabled}>
+             Log in
+           </Button>
         </div>
       )
   }}
@@ -50,14 +65,4 @@ A basic button component, includes several predefined button styles (see example
 <br />
 
 
-When `icon` property is provided as string it renders an SVG Icon
-(referenced by name from `@hulu-react-style-components/icons`) along with the specified children.
-
-### Usage
-
-```jsx
-import { Button }  from '@hulu/react-style-components';
-
-
-<Button onClick={onButtonClick} size={size} variant={variant} disabled={disabled}>Button text</Button>
-```
+When `icon` property is provided as string it renders an SVG Icon.

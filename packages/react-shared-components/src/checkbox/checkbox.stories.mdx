@@ -16,12 +16,22 @@ A basic Checkbox component
   <Story name='Default'>{() => {
     const isChecked = boolean('isChecked', true);
     return (
+      <div className="m-2">
       <Checkbox
         key={isChecked}
+        id="first"
         handleToggle={() => {}}
         isChecked={isChecked}
         label="Remember me"
       />
+      <Checkbox
+        key={isChecked}
+        id="second"
+        handleToggle={() => {}}
+        isChecked={false}
+        label="Remember me"
+      />
+      </div>
     );
   }}
   </Story>
