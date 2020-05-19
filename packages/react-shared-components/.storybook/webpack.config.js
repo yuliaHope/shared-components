@@ -43,7 +43,7 @@ module.exports = async ({ config }) => {
       {
         loader: 'sass-resources-loader',
         options: {
-          resources: path.join(__dirname, '../src/assets/sass_resources.scss'),
+          resources: path.join(__dirname, '../src/assets/scss/sass_resources.scss'),
         },
       },
     ],
