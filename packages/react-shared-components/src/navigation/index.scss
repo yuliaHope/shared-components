@@ -1,0 +1,23 @@
+.navigation {
+  background-color: $white;
+  padding: 1.25 * $spacer;
+
+  .nav-link {
+    color: $brand-primary-darker;
+
+    &:hover {
+      color: $grey;
+    }
+  }
+
+  .nav-link.active {
+    color: $brand-primary-dark;
+    border-bottom: 2px solid $brand-primary-dark;
+  }
+}
+
+.user-image {
+  width: 3.125 * $spacer;
+  height: 3.125 * $spacer;
+  border-radius: 50%;
+}

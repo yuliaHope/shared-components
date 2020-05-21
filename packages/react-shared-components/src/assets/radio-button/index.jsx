@@ -5,13 +5,13 @@ import FormGroup from 'reactstrap/lib/FormGroup';
 
 import './index.scss';
 
-export default function Checkbox({ label, className, ...props }) {
+export default function RadioBtn({ label, className, ...props }) {
   return (
     <FormGroup className={className} check>
-      <Label check className="checkbox-label">
-        <Input type="checkbox" {...props} />
+      <Label check className="radio-label">
+        <Input type="radio" {...props} />
         {label}
-        <span className="checkbox-custom"></span>
+        <span className="radio-custom"></span>
       </Label>
     </FormGroup>
   );

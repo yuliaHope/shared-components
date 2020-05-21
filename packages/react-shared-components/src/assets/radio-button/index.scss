@@ -1,0 +1,48 @@
+.radio-label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 2 * $spacer;
+  clear: both;
+}
+
+.radio-label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.radio-label .radio-custom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1.5 * $spacer;
+  width: 1.5 * $spacer;
+  background-color: transparent;
+  border-radius: 50%;
+  transition: all 0.3s ease-out;
+  border: 1px solid $brand-primary-darker;
+}
+
+.radio-label input:checked ~ .radio-custom {
+  border: 1px solid $brand-primary-dark;
+}
+
+.radio-label .radio-custom::after {
+  position: absolute;
+  content: '';
+  left: 50%;
+  top: 50%;
+  height: 0;
+  width: 0;
+  border-radius: 50%;
+  opacity: 1;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease-out;
+}
+
+.radio-label input:checked ~ .radio-custom::after {
+  height: $spacer;
+  width: $spacer;
+  background-color: $brand-primary-dark;
+}

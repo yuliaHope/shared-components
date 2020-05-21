@@ -1,86 +1,43 @@
-import SearchInput from '.';
+import Filter from '.';
 import { Meta, Story, Preview, Description, Props } from '@storybook/addon-docs/blocks';
 import { useState } from '@storybook/addons';
 
+import { IconBath } from '../icons';
+
 <Meta
-  title={'Search Input'}
-  component={SearchInput}  />
+  title={'Filter'}
+  component={Filter}  />
 
-<h1>Search Input</h1>
-
-<Preview>
-  <Story name='Default'>
-    <SearchInput placeholder='Enter an address, city or ZIP code' />
-  </Story>
-</Preview>
-
-### Props
-
-<Props of={SearchInput} />
-
-#### Event handlers
-
-- `onClear` is called when clear/close button is clicked
-- `onInput` is called when the text value changes
-
-#### Children
-
-Search Result component may be provided as children
-
-<br />
-
-### With Input Handler
+<h1>Filter</h1>
 
 <Preview>
   <Story name='WithInputHandler'>{() => {
-    const [search, setSearch] = useState('');
+    const options = [{value: 'option1', label: 'Option 1'}, {value: 'option2', label: 'Option 2'}, {value: 'option3', label: 'Option 3'}];
+    const [select, setSelected] = useState('');
+    const [searchOptions, setOptions] = useState([]);
     return (
-      <SearchInput
-        onInput={setSearch}
-        placeholder='Search'>
-        <div>Your search{search}</div>
-      </SearchInput>
+        <div className="m-1">
+            <div className="w-25">
+                <Filter type="search" options={searchOptions} onInput={(value) => setOptions(value ? options : [])} placeholder='Search' />
+            </div>
+            <div className="w-25">
+                <Filter type="select" options={options} onSelect={setSelected} placeholder='Search' />
+            </div>
+            <div>Selected value: {select.value} Selected label: {select.label}</div>
+        </div>
     );
   }}</Story>
 </Preview>
 
-### With Submit Handler
 
-<Preview>
-  <Story name='WithSubmitHandler'>{() => {
-    const [search, setSearch] = useState('');
-    return (
-      <SearchInput onSubmit={setSearch} placeholder='Press enter to submit your query'>
-        <div>Your search{search}</div>
-      </SearchInput>
-    );
-  }}
-  </Story>
-</Preview>
+### Props
 
-### With Clear Handler
+<Props of={Filter} />
 
-<Preview>
-  <Story name='WithClearHandler'>{() => {
-    const [search, setSearch] = useState('');
-    return (
-      <SearchInput
-        onClear={() => setSearch('')}
-        onInput={setSearch}
-        placeholder='Search'>
-        {search !== '' && <div>Your search{search}</div>}
-      </SearchInput>
-    );
-  }}
-  </Story>
-</Preview>
+#### Event handlers
 
-### Usage
+- `onSelect` is called when the value selected
 
-```jsx
-import { SearchInput } from '@hulu-react-style-components';
- 
+#### Children
 
-<SearchInput placeholder="Search for resources (reports, dashboards, templates, etc.)" />
-```
-
+Search Result component may be provided as children

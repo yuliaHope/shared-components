@@ -1,44 +1,61 @@
-import React, { useState } from 'react';
-import { IconSearch, IconClose } from '../icons';
+import React, { useState, useRef, useEffect } from 'react';
+import classnames from 'classnames';
+
+import Input from '../input';
+import OptionsList from './OptionsList';
+import { IconArrows } from '../icons';
+
+import './index.scss';
 
 const noop = () => {};
 
-export default function SearchInput({
-  placeholder,
-  onClear = noop,
-  onInput = noop,
-  onSubmit = noop,
-  children,
-  ...props
-}) {
-  const [term, setTerm] = useState('');
-  const inputHandler = (event) => {
-    const value = event.target.value;
-    setTerm(value);
+export default function Filter({ onSelect = noop, options, defaultValue = {}, className, type, placeholder, onInput }) {
+  const search = type === 'search';
+  console.log('search', search);
+  const [isOpen, setIsOpen] = useState(search && !!options.length);
+  const [selected, setSelected] = useState(defaultValue);
+  const node = useRef();
 
-    onInput(value);
-    if (value === '') {
-      onClear();
+  const handleClick = (e) => {
+    if (node.current && node.current.contains(e.target)) {
+      // inside click
+      setIsOpen(!isOpen);
+      return;
     }
+
+    setIsOpen(false);
   };
 
-  const clearHandler = () => {
-    setTerm('');
-    onClear();
+  useEffect(() => {
+    // add when mounted
+    document.addEventListener('mousedown', handleClick);
+    // return function to be called when unmounted
+    return () => {
+      document.removeEventListener('mousedown', handleClick);
+    };
+  }, []);
+
+  const selectHandler = ({ target }) => {
+    onSelect(options[target.dataset.index]);
+    setSelected(options[target.dataset.index]);
+    setIsOpen(false);
   };
 
-  const submitHandler = (event) => {
-    if (event.key === 'Enter') {
-      onSubmit(term);
-    }
-  };
-
+  console.log('isOpen', isOpen, options, type);
   return (
-    <label {...props}>
-      <IconSearch />
-      <input value={term} placeholder={placeholder} onChange={inputHandler} onKeyDown={submitHandler} />
-      {term !== '' && <IconClose onClick={clearHandler} />}
-      <div>{children}</div>
-    </label>
+    <div ref={node} className="filter">
+      <Input
+        key={selected.label}
+        placeholder={placeholder}
+        onInput={onInput}
+        icon={!search && IconArrows}
+        defaultValue={selected.label}
+        readOnly={!search}
+        outline={!search}
+        type={type}
+        className={classnames(className, { selected: selected.label && !search })}
+      />
+      <OptionsList selectHandler={selectHandler} isOpen={isOpen} options={options} />
+    </div>
   );
 }

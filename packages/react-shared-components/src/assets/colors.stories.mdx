@@ -8,32 +8,36 @@ import { Meta, Story, Preview, Description } from '@storybook/addon-docs/blocks'
   <Story name="Default">
     {() => {
       const colors = {
-        '$primary-darker': '#0E1343',
-        '$primary-dark': '#0175D8',
-        $primary: '#6DBBFA',
-        '$primary-light': '#CBE9FF',
-        '$primary-lighter': '#F6F7F9',
+        '$brand-primary-darker': '#0E1343',
+        '$brand-primary-dark': '#0175D8',
+        '$brand-primary': '#6DBBFA',
+        '$brand-primary-light': '#CBE9FF',
+        '$brand-primary-lighter': '#F6F7F9',
         $orange: '#FC8946',
         $white: '#FFFFFF',
         $grey: '#A7AEB8',
+        '$grey-lighter': '#F7F7F7',
+        '$grey-light': '#B3BBC5',
         $red: '#F34949',
         $almond: '#FFEAC9',
       };
       return (
-        <div className="d-flex">
+        <div style={{ position: 'relative', 'column-count': '4' }}>
           {Object.keys(colors).map((name, k) => {
             const color = colors[name];
             return (
-              <div style={{ 'margin-right': '28px' }}>
+              <div style={{ 'padding': '28px' }}>
                 <div
                   style={{
                     width: '60px',
                     height: '60px',
                     'border-radius': '8px',
+                    'border': '1px solid black',
                     background: color,
                   }}
                 ></div>
                 <div>{name}</div>
+                <div>{colors[name]}</div>
               </div>
             );
           })}

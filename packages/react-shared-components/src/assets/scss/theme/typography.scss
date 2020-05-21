@@ -8,40 +8,39 @@
 }
 
 @font-face {
-  font-family: 'Rubik';
-  src: url('../../fonts/Rubikmedium.woff') format('woff') local('Rubik Medium');
+  font-family: 'Rubik-Bold';
+  src: url('../../fonts/Rubikmedium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
 }
 
-@mixin text-style($font-size, $line-height, $font-weight) {
-  font-family: Rubik;
+@mixin text-style($font-size, $line-height, $font-family) {
+  font-family: $font-family;
   font-size: $font-size;
   line-height: $line-height;
-  font-weight: $font-weight;
 }
 
 .title-1 {
-  @include text-style($spacer * 4.5, 120%, $font-weight-medium);
+  @include text-style($spacer * 4.5, 120%, 'Rubik-Bold');
 }
 .title-2 {
-  @include text-style($spacer * 1.875, 137%, $font-weight-medium);
+  @include text-style($spacer * 1.875, 137%, 'Rubik-Bold');
 }
 .subtitle-1 {
-  @include text-style($spacer * 1.5, 120%, $font-weight-medium);
+  @include text-style($spacer * 1.5, 120%, 'Rubik-Bold');
 }
 .subtitle-2 {
-  @include text-style($spacer * 1.5, 130%, $font-weight-normal);
+  @include text-style($spacer * 1.5, 130%, 'Rubik');
 }
 .text-l {
-  @include text-style($spacer, 130%, $font-weight-normal);
+  @include text-style($spacer, 130%, 'Rubik');
 }
 .text-l-s {
-  @include text-style($spacer * 0.75, 130%, $font-weight-normal);
+  @include text-style($spacer * 0.75, 130%, 'Rubik');
 }
 .text-b {
-  @include text-style($spacer, 125%, $font-weight-medium);
+  @include text-style($spacer, 125%, 'Rubik-Bold');
 }
 .description {
-  @include text-style($spacer * 0.875, 143%, $font-weight-normal);
+  @include text-style($spacer * 0.875, 143%, 'Rubik');
 }

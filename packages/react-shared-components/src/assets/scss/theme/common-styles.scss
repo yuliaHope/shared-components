@@ -1,0 +1,14 @@
+.control, .control[readonly] {
+  border-radius: 8px;
+  box-shadow: 0px 4px 25px rgba(25, 36, 95, 0.1);
+  background-color: $white;
+
+  &:hover {
+    background-color: $brand-primary-lighter;
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}

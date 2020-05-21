@@ -1,0 +1,26 @@
+.input-label .outline.selected,
+.input-label .outline[readonly].selected {
+  background-color: $brand-primary-light;
+  color: $brand-primary-dark;
+}
+
+.filter {
+  position: relative;
+
+  .options-list {
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    z-index: 1000000;
+
+    .option:hover {
+      background-color: $almond;
+    }
+
+    .option:active {
+      background-color: $almond;
+      opacity: 0.8;
+    }
+  }
+}

@@ -1,0 +1,78 @@
+import Input from '.';
+import { Meta, Story, Preview, Description, Props } from '@storybook/addon-docs/blocks';
+import { useState } from '@storybook/addons';
+
+import { IconBath } from '../icons';
+
+<Meta
+  title={'Input'}
+  component={Input}  />
+
+<h1>Search Input</h1>
+
+<Preview>
+  <Story name='Default'>
+    <div className="m-1">
+      <div className="w-25">
+        <Input type="search" placeholder='Enter an address, city or ZIP code' />
+      </div>
+      <div className="w-25">
+        <Input type="password" outline placeholder='Password' />
+      </div>
+      <div className="w-25">
+        <Input icon={IconBath} outline placeholder='Password' />
+      </div>
+      <div className="w-25">
+        <Input invalid outline type="search" validationError="Error text!" placeholder='Search' />
+      </div>
+    </div>
+  </Story>
+</Preview>
+
+### Props
+
+<Props of={Input} />
+
+#### Event handlers
+
+- `onClear` is called when clear/close button is clicked
+- `onInput` is called when the text value changes
+
+#### Children
+
+Search Result component may be provided as children
+
+<br />
+
+### With Input Handler
+
+<Preview>
+  <Story name='WithInputHandler'>{() => {
+    const [search, setSearch] = useState('');
+    return (
+      <div>
+        <Input
+          onInput={setSearch}
+          placeholder='Search'>
+        </Input>
+        <div>Your search {search}</div>
+      </div>
+    );
+  }}</Story>
+</Preview>
+
+### With Submit Handler
+
+<Preview>
+  <Story name='WithSubmitHandler'>{() => {
+    const [search, setSearch] = useState('');
+    return (
+      <div>
+        <Input onSubmit={setSearch} placeholder='Press enter to submit your query'>
+        </Input>
+        <div>Your search {search}</div>
+      </div>
+    );
+  }}
+  </Story>
+</Preview>

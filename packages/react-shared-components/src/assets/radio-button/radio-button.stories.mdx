@@ -1,0 +1,53 @@
+import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
+import { useState } from '@storybook/addons';
+import RadioBtn from '.';
+import { Meta, Story, Preview, Description, Props } from '@storybook/addon-docs/blocks';
+
+<Meta
+  title={'RadioBtn'}
+  component={RadioBtn} />
+
+<h1>RadioBtn</h1>
+
+A basic RadioBtn component
+
+<Preview>
+  <Story name='Default'>{() => {
+    return (
+      <FormGroup tag="fieldset">
+        <legend className="ml-1">Radio Buttons</legend>
+        <RadioBtn
+          className="mb-1"
+          name="radio1"
+          handleToggle={() => {}}
+          label="Remember me group1"
+        />
+        <RadioBtn
+          className="mb-1"
+          name="radio1"
+          handleToggle={() => {}}
+          label="Remember me group1"
+        />
+         <RadioBtn
+          className="mb-1"
+          name="radio2"
+          handleToggle={() => {}}
+          label="Remember me group2"
+        />
+        <RadioBtn
+          className="mb-1"
+          name="radio2"
+          handleToggle={() => {}}
+          label="Remember me group2"
+        />
+      </FormGroup>
+    );
+  }}
+  </Story>
+</Preview>
+
+### Props
+
+<Props of={RadioBtn} />
+
+Accepts all input props.

@@ -1,0 +1,27 @@
+import { withKnobs, select, boolean } from '@storybook/addon-knobs';
+import Navigation from '.';
+import { Meta, Story, Preview, Props, Description } from '@storybook/addon-docs/blocks';
+
+<Meta
+  title={'Navigation'}
+  decorators={[withKnobs]}
+  component={Navigation}
+  />
+
+<h1>Navigation</h1>
+
+<Preview>
+  <Story name='Default'>{() => {
+      return (
+        <div style={{padding: '30px', background: '#6DBBFA'}}>
+            <div className="mb-3"><Navigation/></div>
+            <div><Navigation isAuth user={{name: 'Aila Wiseman', img: 'https://png.pngtree.com/png-clipart/20190516/original/pngtree-users-vector-icon-png-image_3725294.jpg'}}/></div>
+        </div>
+      )
+    }}
+  </Story>
+</Preview>
+
+### Props
+
+<Props of={Navigation} />

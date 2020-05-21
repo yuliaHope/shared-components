@@ -57,3 +57,4 @@ export { ReactComponent as IconTick } from './tick.svg';
 export { ReactComponent as IconTrash } from './trash.svg';
 export { ReactComponent as IconTwitter } from './twitter.svg';
 export { ReactComponent as IconVisible } from './visible.svg';
+export { ReactComponent as IconFacebookBlack } from './facebook_black.svg';
